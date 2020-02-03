@@ -2,80 +2,20 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "subscriptionId": {
-            "value": "d9cf657f-0432-4847-9be0-38b3727c102e"
+        "sites_labapp_git_win_name": {
+            "value": "labappsettingarm-test"
         },
-        "name": {
-            "value": "abcd-ppp"
+		 "appset1": {
+            "value": "labappsettingarm-test"
         },
-        "location": {
-            "value": "southeastasia"
+		 "appset2": {
+            "value": "labappsettingarm-test"
         },
-        "hostingEnvironment": {
-            "value": "labasev2"
+		 "appset3": {
+            "value": "labappsettingarm-test"
         },
-        "hostingPlanName": {
-            "value": "ASP-aksrgtest-a9ed"
-        },
-        "serverFarmResourceGroup": {
-            "value": "aks-rg-test"
-        },
-        "alwaysOn": {
-            "value": true
-        },
-        "sku": {
-            "value": "Isolated"
-        },
-        "skuCode": {
-            "value": "I1"
-        },
-        "workerSize": {
-            "value": "0"
-        },
-        "workerSizeId": {
-            "value": "0"
-        },
-        "numberOfWorkers": {
-            "value": "1"
-        },
-        "currentStack": {
-            "value": "dotnetcore"
-        },
-        "errorLink": {
-            "value": "https://abcd-ppp.scm.labasev2.appserviceenvironment.net/detectors"
-        },
-        "aseName": {
-            "value": "labasev2"
-        },
-        "vnetName": {
-            "value": "test-vnet"
-        },
-        "subnetName": {
-            "value": "ase-subnet"
-        },
-        "vnetId": {
-            "value": "/subscriptions/d9cf657f-0432-4847-9be0-38b3727c102e/resourceGroups/test-vnet/providers/Microsoft.Network/virtualNetworks/test-vnet"
-        },
-        "VNetResourceGroupName": {
-            "value": "test-vnet"
-        },
-        "vnetAddress": {
-            "value": "10.1.0.0/16"
-        },
-        "subnetAddress": {
-            "value": "10.1.155.0/24"
-        },
-        "subnetRouteTableName": {
-            "value": "labasev2-Route-Table"
-        },
-        "subnetNSGName": {
-            "value": "labasev2-NSG"
-        },
-        "ilbMode": {
-            "value": 3
-        },
-        "subnetId": {
-            "value": "/subscriptions/d9cf657f-0432-4847-9be0-38b3727c102e/resourceGroups/test-vnet/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/ase-subnet"
+        "serverfarms_ASP_appsvcwin_a806_externalid": {
+            "value": "/subscriptions/97ddcfbc-3a05-404d-9edb-7a77ed5f4f25/resourceGroups/appsvc-win/providers/Microsoft.Web/serverfarms/ASP-appsvcwin-a806"
         }
     }
 }
