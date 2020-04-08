@@ -25,7 +25,7 @@ steps:
     source antenv/bin/activate
     python -m pip install --upgrade pip
     pip install -r requirements.txt
-  workingDirectory: $(projectRoot)
+  workingDirectory: .
   displayName: 'Install dependencies'
 
 - task: ArchiveFiles@2
