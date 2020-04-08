@@ -41,6 +41,7 @@ steps:
 - task: AzureRmWebAppDeployment@4
   inputs:
     ConnectionType: 'AzureRM'
+    ConnectedServiceName: 'devops-sp'
     appType: 'webAppLinux'
     WebAppName: 'labpyapp'
     RuntimeStack: 'PYTHON|3.6'
