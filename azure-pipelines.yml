@@ -26,14 +26,11 @@ steps:
   displayName: 'Install dependencies'
 
 
-- task: ArchiveFiles@2
-   inputs:
-     rootFolderOrFile: '$(Build.SourcesDirectory)'
-     includeRootFolder: false
-     archiveType: 'zip'
-     archiveFile: '$(Build.ArtifactStagingDirectory)/Application$(Build.BuildId).zip'
-     replaceExistingArchive: true
-     verbose: # (no value); this input is optional
-- publish: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
-   displayName: 'Upload package'
-   artifact: drop
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'devops-sp'
+    appType: 'webAppLinux'
+    WebAppName: 'labpyapp'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    RuntimeStack: 'PYTHON|3.6'
