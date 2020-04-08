@@ -21,16 +21,28 @@ steps:
   displayName: 'Use Python $(python.version)'
 
 - script: |
+    python -m venv antenv
+    source antenv/bin/activate
     python -m pip install --upgrade pip
     pip install -r requirements.txt
+  workingDirectory: $(projectRoot)
   displayName: 'Install dependencies'
+
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(Build.SourcesDirectory)'
+    includeRootFolder: false
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    replaceExistingArchive: true
+    verbose: true # (no value); this input is optional
 
 
 - task: AzureRmWebAppDeployment@4
   inputs:
     ConnectionType: 'AzureRM'
-    azureSubscription: 'devops-sp'
     appType: 'webAppLinux'
     WebAppName: 'labpyapp'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
     RuntimeStack: 'PYTHON|3.6'
+    StartupCommand: 'gunicorn --bind=0.0.0.0 --workers=4 startup:app'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
