@@ -47,3 +47,8 @@ steps:
 #     RuntimeStack: 'PYTHON|3.6'
 #     StartupCommand: 'gunicorn --bind=0.0.0.0 --workers=4 startup:app'
 #     packageForLinux: '$(Build.ArtifactStagingDirectory)/**/*.zip'
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
